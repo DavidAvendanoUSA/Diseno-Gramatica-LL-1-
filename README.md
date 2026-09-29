@@ -4,8 +4,7 @@
 
 ## Ejecución en Linux
 
-Requisitos:
-  - Python
+Requisitos: Python
 
 - Clonar el repositorio en el dispositivo
   ```
