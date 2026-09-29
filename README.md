@@ -2,9 +2,15 @@
 
 ---
 
-## Requisitos y Ejecución
+## ¿QUÉ ES?
 
-Requisitos: Python 3 (utiliza librerías estándar `sys` y `math`, no requiere instalar paquetes adicionales con pip).
+
+
+---
+
+## EJECUCIÓN
+
+Requisitos: Python 3 (utiliza librerías estándar `sys` y `math`, no necesita paquetes adicionales).
 
 - Clonar el repositorio en el dispositivo
   ```bash
@@ -18,7 +24,17 @@ Requisitos: Python 3 (utiliza librerías estándar `sys` y `math`, no requiere i
   ```bash
   python main.py gramatica/ll1_prueba_1.txt
   ```
+
+
+- PRUEBA 1:
+  <img width="1126" height="639" alt="image" src="https://github.com/user-attachments/assets/72d59d77-3ee9-4773-a12a-7ddffb6e31c0" />
+
+- PRUEBA 2:
+  <img width="1128" height="641" alt="image" src="https://github.com/user-attachments/assets/63e680ea-4989-4669-97b3-8148418ffd21" />
   
+- PRUEBA 3:
+  <img width="1127" height="648" alt="image" src="https://github.com/user-attachments/assets/10a95240-e425-4529-aa34-4cf9b4371261" />
+
 ---
 
 ## GRAMÁTICA *gramatica.py*
@@ -106,6 +122,11 @@ Resultado:
 
 ## CÓDIGO FUENTE *ll1.txt*
 
+
+
+---
+
+## RELACIÓN ENTRE TODOS LOS ARCHIVOS &  CÓMO FUNCIONA
 
 
 ---
