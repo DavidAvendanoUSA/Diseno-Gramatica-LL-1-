@@ -11,8 +11,7 @@ def main():
         with open(ruta_archivo, "r", encoding="utf-8") as f:
             codigo = f.read()
     else:
-        # Código por defecto en caso de no proporcionar un archivo
-        codigo = "x = 2 + 3 * sin(45)"
+       print("error ruta invalida")
 
     env = {}   # tabla de símbolos: guarda las variables
 
