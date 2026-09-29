@@ -2,21 +2,21 @@
 
 ---
 
-## Ejecución en Linux
+## Requisitos y Ejecución
 
-Requisitos: Python
+Requisitos: Python 3 (utiliza librerías estándar `sys` y `math`, no requiere instalar paquetes adicionales con pip).
 
 - Clonar el repositorio en el dispositivo
-  ```
+  ```bash
   git clone https://github.com/DavidAvendanoUSA/Diseno-Gramatica-LL-1-
   ```
 - Cambiar el directorio a la carpeta donde se descargó el repositorio
+  ```bash
+  cd "ruta_archivo"
   ```
-  $ cd "ruta_archivo"
-  ```
-- Ejecutar pasando como argumento el código fuente *ll1.txt*
-  ```
-  $ python main.py ll1.txt
+- Ejecutar pasando como argumento el archivo de prueba (por ejemplo, los archivos en `gramatica/`):
+  ```bash
+  python main.py gramatica/ll1_prueba_1.txt
   ```
   
 ---
