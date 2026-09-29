@@ -1,12 +1,12 @@
 # GRAMÁTICA LL(1)
 
-Un compilador simple que implementa un analizador léxico, sintáctico y semántico para evaluar expresiones matemáticas con soporte para funciones trigonométricas.
+Un compilador simple que usa un analizador léxico, sintáctico y semántico para evaluar expresiones matemáticas y trigonométricas.
 
 ---
 
-## Requisitos y Ejecución
+## EJECUCIÓN
 
-**Requisitos:** Python 3 (utiliza librerías estándar `sys` y `math`, no requiere instalar paquetes adicionales con pip).
+**Requisitos:** Python 3 (utiliza librerías estándar, no requiere paquetes adicionales).
 
 - Clonar el repositorio en el dispositivo
   ```bash
@@ -36,7 +36,7 @@ Un compilador simple que implementa un analizador léxico, sintáctico y semánt
 
 ## GRAMÁTICA *gramatica.py*
 
-Define formalmente las reglas sintácticas del lenguaje en forma de diccionario.
+Define las reglas sintácticas del lenguajeo.
 
 **Estructura:**
 ```
@@ -52,20 +52,20 @@ Factor → numero | id | abs(Expresion) | sin(Expresion) | cos(Expresion) | tan(
 **Características:**
 - Define la precedencia de operadores: `+` y `-` tienen menor precedencia que `*`, `/` y `%`
 - Permite funciones trigonométricas: `abs()`, `sin()`, `cos()`, `tan()`
-- Soporta paréntesis para agrupar expresiones
+- Soporta paréntesis para agrupar
 - Utiliza `ε` (epsilon) para representar producciones vacías
 
 ---
 
 ## LEXER *lexer.py*
 
-Analiza el código fuente carácter por carácter y genera una lista de tokens.
+Analiza el código fuente y genera una lista de tokens.
 
 **Función principal:** `lexer(codigo)`
 
 **Proceso:**
 1. Ignora espacios en blanco
-2. Reconoce números: cadenas de dígitos consecutivos → token `("numero", "valor")`
+2. Reconoce números: cadenas de dígitos → token `("numero", "valor")`
 3. Reconoce identificadores y palabras clave: inician con letra o `_` → token `("id", "nombre")`
 4. Reconoce operadores y símbolos: `+ - * / % = ( )` → token `(símbolo, símbolo)`
 5. Descarta caracteres desconocidos
@@ -88,14 +88,14 @@ Realiza un análisis sintáctico descendente recursivo (recursive descent).
 - **LL(1):** solo mira 1 token adelante para decidir qué producción usar
 
 **Estructura:**
-1. Una función por cada no-terminal (Programa, Asignacion, Expresion, etc.)
+1. Una función por cada no terminal (Programa, Asignacion, Expresion, etc.)
 2. Cada función devuelve una tupla `(nombre_nodo, [hijos])`
 3. Las hojas son los tokens del lexer
 4. Cuando hay `ε` (epsilon), devolvemos tupla con lista vacía
 
 **Métodos principales:**
-- `token_actual()`: devuelve el token actual sin consumirlo
-- `comer(tipo_esperado)`: valida y consume un token del tipo esperado
+- `token_actual()`: devuelve el token actual sin comerlo
+- `comer(tipo_esperado)`: valida y come un token del tipo esperado
 - `programa()`: punto de entrada del parser
 - `asignacion()`, `expresion()`, `termino()`, `factor()`: funciones recursivas para cada regla gramatical
 
@@ -146,8 +146,8 @@ Resultado AST:
 
 **Manejo de errores:**
 - Lanza `ParseError` si encuentra tokens inesperados
-- Muestra el token problemático y su posición en la entrada
-- Valida que se consuman todos los tokens al finalizar
+- Muestra el token que genera el error y su posición en la entrada
+- Valida que se coman todos los tokens al finalizar
 
 ---
 
@@ -170,7 +170,7 @@ Evalúa el árbol de análisis sintáctico (AST) generado por el parser y ejecut
 - `v_Factor(h, env)`: evalúa factores (números, variables, funciones, expresiones entre paréntesis)
 
 **Diccionario VISITORS:**
-Mapea nombres de nodos a sus funciones visitadoras para un despacho dinámico.
+Mapea nombres de nodos a sus funciones visitadoras para enviarlos.
 
 **Validaciones:**
 - Detecta variables no definidas
@@ -181,11 +181,11 @@ Mapea nombres de nodos a sus funciones visitadoras para un despacho dinámico.
 
 ## MAIN *main.py*
 
-Orquesta el pipeline completo: lectura de archivo → lexer → parser → semántica.
+Ordena los archivos completos (pipe): lectura de archivo → lexer → parser → semántica.
 
 **Flujo:**
 1. Lee el archivo de entrada (pasado como argumento)
-2. Ejecuta el lexer para obtener tokens
+2. Ejecuta el lexer para generar tokens
 3. Ejecuta el parser para construir el AST
 4. Ejecuta el análisis semántico para evaluar la expresión
 5. Muestra tokens, AST, resultado final y variables definidas
@@ -217,7 +217,7 @@ Orquesta el pipeline completo: lectura de archivo → lexer → parser → semá
 
 ---
 
-## FLUJO COMPLETO DEL COMPILADOR
+## FLUJO DEL COMPILADOR
 
 ```
 Código fuente
@@ -229,7 +229,7 @@ Código fuente
 [SEMÁNTICA] → Resultado + Tabla de símbolos
 ```
 
-Cada etapa valida su entrada y reporta errores específicos del tipo que procesa.
+Cada etapa valida su entrada y reporta errores.
 
 ---
 
