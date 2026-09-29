@@ -98,6 +98,18 @@ Resultado:
 
 ---
 
+## MAIN *main.py*
+
+
+
+---
+
+## CÓDIGO FUENTE *ll1.txt*
+
+
+
+---
+
 ## INTEGRANTES
 - David Avendaño
 - Laura Niño
