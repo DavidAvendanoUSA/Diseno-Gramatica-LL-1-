@@ -39,15 +39,16 @@ def v_prim(nodo, acum, env):          # sirve para ExpresionPrim y TerminoPrim
 
 def v_Factor(h, env):
     tipo, valor = h[0]
+    if len(h) == 4:                       # función: nombre ( Expresion )
+        return FUNCIONES[valor](visitar(h[2], env))
     if tipo == "numero":
         return int(valor)
     if tipo == "id":
         if valor not in env:
             raise NameError(f"Variable no definida: {valor}")
         return env[valor]
-    if tipo == "(":
+    if tipo == "(":                       # ( Expresion )
         return visitar(h[1], env)
-    return FUNCIONES[tipo](visitar(h[2], env))     # abs, sin, cos, tan
 
 VISITORS = {
     "Programa": v_Programa,
