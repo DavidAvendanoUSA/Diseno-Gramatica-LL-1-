@@ -11,7 +11,8 @@ def main():
         with open(ruta_archivo, "r", encoding="utf-8") as f:
             codigo = f.read()
     else:
-       print("error ruta invalida")
+        print("Error: ruta inválida")
+        return
 
     env = {}   # tabla de símbolos: guarda las variables
 
