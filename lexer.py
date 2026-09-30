@@ -11,11 +11,17 @@ def lexer(codigo):
             i += 1
 
         
-        elif caracter.isdigit():
+        elif caracter.isdigit() or (caracter == '.' and i + 1 < n and codigo[i + 1].isdigit()):
             numero = ""
             while i < n and codigo[i].isdigit():
                 numero += codigo[i]
                 i += 1
+            if i < n and codigo[i] == '.':
+                numero += '.'
+                i += 1
+                while i < n and codigo[i].isdigit():
+                    numero += codigo[i]
+                    i += 1
             tokens.append(("numero", numero))
 
         

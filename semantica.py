@@ -39,10 +39,12 @@ def v_prim(nodo, acum, env):          # sirve para ExpresionPrim y TerminoPrim
 
 def v_Factor(h, env):
     tipo, valor = h[0]
+    if tipo == "-":                       # - Factor (unario negativo)
+        return -visitar(h[1], env)
     if len(h) == 4:                       # función: nombre ( Expresion )
         return FUNCIONES[valor](visitar(h[2], env))
     if tipo == "numero":
-        return int(valor)
+        return float(valor) if "." in valor else int(valor)
     if tipo == "id":
         if valor not in env:
             raise NameError(f"Variable no definida: {valor}")

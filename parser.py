@@ -206,9 +206,15 @@ class Parser:
             
             return ("Factor", [paren_abierto, expresion, paren_cerrado])
         
+        # Caso 4: Menos unario (números o factores negativos)
+        elif tipo == "-":
+            menos_token = self.comer("-")
+            factor_nodo = self.factor()
+            return ("Factor", [menos_token, factor_nodo])
+        
         else:
             raise ParseError(
-                f"Se esperaba Factor (numero, id o paréntesis) pero se encontró '{tipo}' con valor '{valor}'"
+                f"Se esperaba Factor (numero, id, signo '-' o paréntesis) pero se encontró '{tipo}' con valor '{valor}'"
             )
     
     def parsear(self):

@@ -31,6 +31,7 @@ GRAMATICA = {
     "Factor": [
         ["numero"],
         ["id"],
+        ["-", "Factor"],
         ["abs", "(", "Expresion", ")"],
         ["sin", "(", "Expresion", ")"],
         ["cos", "(", "Expresion", ")"],
