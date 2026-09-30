@@ -185,7 +185,7 @@ class Parser:
         # Caso 2: Variable (id)
         elif tipo == "id":
             # Verificar si es una palabra clave (función trigonométrica)
-            if valor in ["sin", "cos", "tan", "abs"]:
+            if valor in ["sin", "cos", "tan", "arctan", "abs"]:
                 # Es una función
                 funcion_token = self.comer("id")
                 paren_abierto = self.comer("(")

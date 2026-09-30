@@ -1,6 +1,6 @@
 import math
 
-FUNCIONES = {"abs": abs, "sin": math.sin, "cos": math.cos, "tan": math.tan}
+FUNCIONES = {"abs": abs, "sin": math.sin, "cos": math.cos, "tan": math.tan, "arctan": math.atan}
 
 def calcular(op, a, b):
     if op == "+": return a + b

@@ -36,6 +36,7 @@ GRAMATICA = {
         ["sin", "(", "Expresion", ")"],
         ["cos", "(", "Expresion", ")"],
         ["tan", "(", "Expresion", ")"],
+        ["arctan", "(", "Expresion", ")"],
         ["(", "Expresion", ")"]
     ]
 }
